@@ -20,7 +20,7 @@ describe Receipt do
     )
   end
 
-  it 'handles multiple quantities' do
+  xit 'handles multiple quantities' do
     receipt = Receipt.new([
       { 'Apple' => 1.00 },
       { 'Apple' => 1.00 },
@@ -55,9 +55,10 @@ describe Receipt do
           1 Apple - $1.00
           1 Banana - $2.00
 
-          Pretax Total - $3.00
+          Item Total - $3.00
           Discount Code Applied: 'SUMMER-10OFF'
           Discount - ($-0.30)
+          Pretax Total - $2.70
           Sales Tax (6%) - $0.16
           Total - $2.86
         HEREDOC
