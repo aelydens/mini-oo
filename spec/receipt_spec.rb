@@ -52,15 +52,15 @@ describe Receipt do
 
       expect(receipt.generate).to eq(
         <<~HEREDOC
-          1 Apple - $1.00
+          2 Apples - $2.00
           1 Banana - $2.00
 
-          Item Total - $3.00
+          Item Total - $4.00
           Discount Code Applied: 'SUMMER-10OFF'
-          Discount - ($-0.30)
-          Pretax Total - $2.70
-          Sales Tax (6%) - $0.16
-          Total - $2.86
+          Discount - ($-0.40)
+          Pretax Total - $3.60
+          Sales Tax (6%) - $0.22
+          Total - $3.82
         HEREDOC
       )
     end
