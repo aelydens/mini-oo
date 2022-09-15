@@ -4,13 +4,13 @@ require_relative '../receipt'
 describe Receipt do
   it 'returns a receipt with line items and totals' do
     receipt = Receipt.new([
-      { item: 'Apple', price: 1.00 },
+      { item: 'Carrot', price: 1.00 },
       { item: 'Banana', price: 2.00 }
     ])
 
     expect(receipt.generate).to eq(
       <<~HEREDOC
-        1 Apple - $1.00
+        1 Carrot - $1.00
         1 Banana - $2.00
 
         Pretax Total - $3.00
@@ -37,6 +37,9 @@ describe Receipt do
         Total - $4.24
       HEREDOC
     )
+  end
+
+  xit 'handles variable sales tax' do
   end
 
   context 'with discount code' do
