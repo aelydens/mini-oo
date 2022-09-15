@@ -4,8 +4,8 @@ require_relative '../receipt'
 describe Receipt do
   it 'returns a receipt with line items and totals' do
     receipt = Receipt.new([
-      { 'Apple' => 1.00 },
-      { 'Banana' => 2.00 }
+      { item: 'Apple', price: 1.00 },
+      { item: 'Banana', price: 2.00 }
     ])
 
     expect(receipt.generate).to eq(
@@ -15,16 +15,16 @@ describe Receipt do
 
         Pretax Total - $3.00
         Sales Tax (6%) - $0.18
-        Total - $3.60
+        Total - $3.18
       HEREDOC
     )
   end
 
-  xit 'handles multiple quantities' do
+  it 'handles multiple quantities' do
     receipt = Receipt.new([
-      { 'Apple' => 1.00 },
-      { 'Apple' => 1.00 },
-      { 'Banana' => 2.00 }
+      { item: 'Apple', price: 1.00 },
+      { item: 'Apple', price: 1.00 },
+      { item: 'Banana', price: 2.00 }
     ])
 
     expect(receipt.generate).to eq(
@@ -43,9 +43,9 @@ describe Receipt do
     xit 'applies discount code' do
       receipt = Receipt.new(
         [
-          { 'Apple' => 1.00 },
-          { 'Apple' => 1.00 },
-          { 'Banana' => 2.00 }
+          { item: 'Apple', price: 1.00 },
+          { item: 'Apple', price: 1.00 },
+          { item: 'Banana', price: 2.00 }
         ],
         'SUMMER-10OFF'
       )

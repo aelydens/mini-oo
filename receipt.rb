@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Receipt
   def initialize(items)
     @items = items
